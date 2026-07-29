@@ -1,0 +1,169 @@
+---
+import Full from '../layouts/Full.astro';
+import octicons from '@primer/octicons';
+
+const appUrl = 'https://app.ormos.dev';
+const icon = (name: keyof typeof octicons, size = 16) =>
+	octicons[name].toSVG({ width: size, height: size });
+---
+
+<Full
+	title="ormos — Your development machine, anywhere"
+	description="Securely reach your development machine from any device. Open a live terminal and preview local apps through one private outbound connection."
+>
+	<div class="page-shell">
+		<header class="site-header">
+			<a class="brand" href="/" aria-label="ormos home">
+				<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+					<path d="M16 3 28 10v12L16 29 4 22V10L16 3Z"></path>
+					<path d="m11 13 4 3-4 3M17 20h5"></path>
+				</svg>
+				<span>ormos</span>
+			</a>
+			<a class="header-cta" href={appUrl}>Open app <span class="icon" set:html={icon('arrow-up-right', 14)} /></a>
+		</header>
+
+		<main>
+			<section class="hero">
+				<div class="hero-copy">
+					<p class="eyebrow"><span></span> Your machine stays yours</p>
+					<h1>Your development machine, <em>within reach.</em></h1>
+					<p class="lede">
+						Open a real terminal and preview anything running on localhost, from the device already
+						in your hand. No inbound ports. No public development servers.
+					</p>
+					<div class="hero-actions">
+						<a class="primary-cta" href={appUrl}>Launch ormos <span class="icon" set:html={icon('arrow-right', 16)} /></a>
+						<p>Web, iOS, and Android</p>
+					</div>
+				</div>
+
+				<div class="product-frame" aria-label="ormos workspace preview">
+					<div class="frame-bar">
+						<div class="frame-brand"><span class="menu-lines"></span> studio / storefront</div>
+						<div class="frame-actions"><span class="icon" set:html={icon('device-mobile', 13)} /><span class="icon" set:html={icon('terminal', 13)} /></div>
+					</div>
+					<div class="preview-pane">
+						<div class="browser-bar">
+							<span class="icon" set:html={icon('chevron-left', 14)} /><span class="icon" set:html={icon('chevron-right', 14)} /><span class="icon" set:html={icon('sync', 12)} />
+							<div><b>:3000</b><span>/products/new</span></div>
+						</div>
+						<div class="preview-content">
+							<div class="preview-card"><small>LOCAL PREVIEW</small><strong>Build here.<br />See it there.</strong><i class="icon" set:html={icon('arrow-up-right', 16)} /></div>
+						</div>
+					</div>
+					<div class="terminal-pane">
+						<div class="terminal-tabs"><span>Terminal 1</span><span class="icon" set:html={icon('plus', 12)} /><i>connected</i></div>
+						<pre><span class="prompt">~/code/storefront</span> <span class="branch">main</span>
+$ bun dev
+<span class="muted">ready in 312ms</span>
+<span class="success">➜ Local: http://localhost:3000/</span>
+<span class="cursor"></span></pre>
+						<div class="terminal-tools"><span class="icon stop" set:html={icon('stop', 11)} /><span class="icon" set:html={icon('unmute', 11)} /><span class="icon" set:html={icon('sign-in', 11)} /><span>dev</span><span>test</span></div>
+					</div>
+				</div>
+			</section>
+
+			<section class="principles" aria-label="How ormos works">
+				<article>
+					<span class="number">01</span>
+					<div><h2>Outbound by design</h2><p>Your machine initiates one encrypted connection. There is nothing to open on your home network.</p></div>
+				</article>
+				<article>
+					<span class="number">02</span>
+					<div><h2>A terminal that is actually yours</h2><p>Work in the real project directory, with your shell, tools, files, and running processes intact.</p></div>
+				</article>
+				<article>
+					<span class="number">03</span>
+					<div><h2>Localhost travels with you</h2><p>Expose only the ports you choose and navigate multi-page apps through a private live preview.</p></div>
+				</article>
+			</section>
+
+			<section class="closing">
+				<p>Leave the screen.<br />Keep the workspace.</p>
+				<div><span>YOUR MACHINE</span><i></i><span>ORMOS RELAY</span><i></i><span>ANY DEVICE</span></div>
+				<a class="primary-cta light" href={appUrl}>Open your workspace <span class="icon" set:html={icon('arrow-right', 16)} /></a>
+			</section>
+		</main>
+
+		<footer><a class="brand footer-brand" href="/"><span>ormos</span></a><p>Private remote development.</p><p>© {new Date().getFullYear()} ormos</p></footer>
+	</div>
+</Full>
+
+<style>
+	.page-shell { min-height: 100svh; overflow: hidden; }
+	.site-header { width: min(1180px, calc(100% - 40px)); height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+	.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 19px; font-weight: 760; letter-spacing: -.03em; text-decoration: none; }
+	.brand-mark { width: 27px; height: 27px; }
+	.brand-mark path:first-child { fill: var(--ink); stroke: none; }
+	.brand-mark path:last-child { fill: none; stroke: white; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+	.header-cta { color: var(--ink); border-bottom: 1px solid #c5c7c2; padding: 6px 0; font-size: 13px; font-weight: 650; text-decoration: none; }
+	.header-cta span { margin-left: 5px; color: var(--lime-dark); }
+	:global(.icon svg) { display: block; fill: currentColor; }
+	.hero { width: min(1180px, calc(100% - 40px)); margin: 70px auto 110px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 70px; }
+	.hero-copy { position: relative; z-index: 2; }
+	.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 22px; color: var(--quiet); font: 620 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+	.eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--lime-dark); box-shadow: 0 0 0 4px rgba(80, 119, 47, .12); }
+	h1 { max-width: 600px; margin: 0; color: var(--ink); font-size: clamp(48px, 6.2vw, 82px); font-weight: 590; line-height: .98; letter-spacing: -.062em; }
+	h1 em { color: var(--lime-dark); font-family: Georgia, serif; font-weight: 400; }
+	.lede { max-width: 520px; margin: 30px 0 32px; color: var(--quiet); font-size: 16px; line-height: 1.7; }
+	.hero-actions { display: flex; align-items: center; gap: 20px; }
+	.hero-actions p { color: #8a8e86; font: 500 10px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+	.primary-cta { display: inline-flex; align-items: center; gap: 30px; border-radius: 4px; background: var(--ink); color: white; padding: 14px 18px; font-size: 13px; font-weight: 680; text-decoration: none; transition: transform .18s ease, background .18s ease; }
+	.primary-cta:hover { transform: translateY(-2px); background: #2b2d29; }
+	.primary-cta span { color: var(--lime); font-size: 17px; }
+	.product-frame { position: relative; min-width: 680px; border: 1px solid #d7dad3; border-radius: 9px; background: white; box-shadow: 0 35px 80px rgba(42, 48, 35, .14), 0 3px 10px rgba(42, 48, 35, .07); overflow: hidden; transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
+	.product-frame::before { content: ''; position: absolute; z-index: -1; width: 340px; height: 340px; right: -70px; top: -90px; border-radius: 50%; background: var(--lime); filter: blur(80px); opacity: .28; }
+	.frame-bar { height: 42px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8eae6; padding: 0 13px; color: #555a51; font: 600 10px var(--mono); }
+	.frame-brand, .frame-actions { display: flex; align-items: center; gap: 11px; }
+	.menu-lines { width: 13px; height: 8px; border-block: 1px solid #777b73; position: relative; }
+	.menu-lines::after { content: ''; position: absolute; left: 0; right: 0; top: 3px; border-top: 1px solid #777b73; }
+	.frame-actions span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 4px; background: #f2f3f0; color: #444840; }
+	.preview-pane { height: 290px; background: #f5f6f2; }
+	.browser-bar { height: 36px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #dddeda; padding: 0 11px; color: #7b7f77; font: 500 11px var(--mono); }
+	.browser-bar > div { display: flex; flex: 1; gap: 3px; border: 1px solid #dedfdb; border-radius: 5px; background: white; padding: 5px 9px; }
+	.browser-bar b { color: #60655d; }
+	.preview-content { height: calc(100% - 36px); display: grid; place-items: center; background: radial-gradient(circle at 64% 20%, #e1efc8, transparent 36%), #f7f7f3; }
+	.preview-card { width: 70%; position: relative; padding: 34px; border: 1px solid #d8dad3; background: rgba(255,255,255,.86); box-shadow: 0 15px 45px rgba(38, 45, 30, .08); }
+	.preview-card small { color: var(--lime-dark); font: 650 8px var(--mono); letter-spacing: .12em; }
+	.preview-card strong { display: block; margin-top: 12px; color: #20231e; font: 520 28px/1.04 var(--sans); letter-spacing: -.04em; }
+	.preview-card i { position: absolute; right: 28px; top: 32px; width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid #a8c77d; border-radius: 50%; color: var(--lime-dark); font-style: normal; }
+	.terminal-pane { height: 245px; display: flex; flex-direction: column; background: #0c110d; color: #d9dfd8; }
+	.terminal-tabs { height: 32px; display: flex; align-items: center; gap: 13px; border-bottom: 1px solid #202620; padding: 0 12px; color: #9da69d; font: 500 9px var(--mono); }
+	.terminal-tabs span:first-child { border-radius: 3px; background: #1c231d; color: #eef2ed; padding: 4px 7px; }
+	.terminal-tabs i { margin-left: auto; color: #576157; font-style: normal; }
+	.terminal-pane pre { flex: 1; margin: 0; padding: 16px 18px; font: 11px/1.8 var(--mono); }
+	.prompt { color: #d9dfd8; }.branch, .success { color: #9fcf69; }.muted { color: #697269; }
+	.cursor { display: inline-block; width: 6px; height: 12px; margin-top: 5px; background: #b4df83; vertical-align: middle; animation: blink 1.2s step-end infinite; }
+	.terminal-tools { height: 32px; display: flex; align-items: center; gap: 7px; border-top: 1px solid #202620; padding: 0 10px; }
+	.terminal-tools span { border-radius: 3px; background: #1a211b; color: #9ca59c; padding: 4px 7px; font: 9px var(--mono); }.terminal-tools .stop { color: #dd7d78; }
+	.principles { width: min(1180px, calc(100% - 40px)); margin: 0 auto 120px; border-top: 1px solid #d9dcd5; }
+	.principles article { display: grid; grid-template-columns: 90px 1fr; border-bottom: 1px solid #d9dcd5; padding: 32px 0; }
+	.principles article div { display: grid; grid-template-columns: .75fr 1fr; align-items: baseline; gap: 40px; }
+	.number { color: var(--lime-dark); font: 650 10px var(--mono); }
+	.principles h2 { margin: 0; color: var(--ink); font-size: 22px; font-weight: 580; letter-spacing: -.035em; }
+	.principles p { max-width: 550px; margin: 0; color: var(--quiet); font-size: 14px; line-height: 1.65; }
+	.closing { width: min(1180px, calc(100% - 40px)); margin: 0 auto; border-radius: 8px; background: var(--ink); color: white; padding: 65px; }
+	.closing > p { max-width: 680px; margin: 0 0 50px; font-size: clamp(42px, 6vw, 72px); font-weight: 530; line-height: .98; letter-spacing: -.055em; }
+	.closing > div { display: flex; align-items: center; gap: 13px; margin-bottom: 35px; color: #9da39b; font: 560 9px var(--mono); letter-spacing: .09em; }
+	.closing > div i { width: 50px; border-top: 1px dashed #596057; }
+	.primary-cta.light { background: var(--lime); color: #1c2418; }.primary-cta.light span { color: #1c2418; }
+	footer { width: min(1180px, calc(100% - 40px)); min-height: 120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; color: #8a8e86; font: 500 10px var(--mono); }
+	footer p:nth-child(2) { text-align: center; } footer p:last-child { text-align: right; }.footer-brand { font-family: var(--sans); font-size: 16px; }
+	@keyframes blink { 50% { opacity: 0; } }
+	@media (max-width: 900px) {
+		.hero { grid-template-columns: 1fr; margin-top: 45px; gap: 60px; }
+		.hero-copy { max-width: 680px; }
+		.product-frame { min-width: 0; width: 100%; transform: none; }
+		.principles article div { grid-template-columns: 1fr; gap: 9px; }
+	}
+	@media (max-width: 600px) {
+		.site-header, .hero, .principles, .closing, footer { width: min(100% - 28px, 1180px); }
+		.site-header { height: 64px; }.hero { margin: 48px auto 80px; }.eyebrow { margin-bottom: 18px; }
+		h1 { font-size: clamp(44px, 14vw, 62px); }.lede { margin-top: 24px; font-size: 15px; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 12px; }
+		.product-frame { border-radius: 6px; }.preview-pane { height: 230px; }.terminal-pane { height: 220px; }.preview-card { width: 82%; padding: 24px; }.preview-card strong { font-size: 23px; }.preview-card i { display: none; }
+		.principles article { grid-template-columns: 42px 1fr; padding: 26px 0; }.principles h2 { font-size: 19px; }.principles p { font-size: 13px; }
+		.closing { padding: 40px 25px; }.closing > div { flex-wrap: wrap; }.closing > div i { width: 20px; }
+		footer { grid-template-columns: 1fr auto; padding: 30px 0; }.footer-brand { display: none; }footer p:nth-child(2) { text-align: left; } footer p:last-child { text-align: right; }
+	}
+</style>
