@@ -24,6 +24,18 @@ description: >
 runs:
   using: composite
   steps:
+    # bun re-downloads the whole npm tree from the registry on a cold runner.
+    # mise-action caches bun the binary, not the packages it installs -- this is
+    # the packages. Keyed on the lockfile with no per-commit component: written
+    # once per dependency change and read every run after.
+    - name: Cache bun install
+      uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+      with:
+        path: ~/.bun/install/cache
+        key: bun-${{ runner.os }}-${{ hashFiles('bun.lock') }}
+        restore-keys: |
+          bun-${{ runner.os }}-
+
     # --frozen-lockfile so CI fails on a lockfile that does not match
     # package.json, rather than quietly resolving something newer than what
     # anyone has run locally.
