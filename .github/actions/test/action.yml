@@ -36,3 +36,24 @@ runs:
           find dist -name '*.js'
           exit 1
         fi
+
+    # Vite 8 targets Safari 16.4 by default and can therefore serialize these
+    # as Media Queries Level 4 ranges. Safari/iOS 16.0-16.3 drops those query
+    # blocks entirely, breaking both responsive layouts. Require the legacy
+    # syntax that our explicit CSS target is intended to preserve.
+    - name: Responsive breakpoints support the browser floor
+      shell: bash
+      run: |
+        mapfile -d '' css_files < <(find dist -type f -name '*.css' -print0)
+        if (( ${#css_files[@]} == 0 )); then
+          echo "::error::dist contains no CSS to inspect"
+          exit 1
+        fi
+
+        for breakpoint in 900 600; do
+          if ! grep -Eq "@media[[:space:]]*\\([[:space:]]*max-width:[[:space:]]*${breakpoint}px[[:space:]]*\\)" "${css_files[@]}"; then
+            echo "::error::the ${breakpoint}px responsive breakpoint lacks legacy max-width syntax; Level 4-only ranges break Safari/iOS 16.0-16.3"
+            grep -hEo '@media[^{}]*' "${css_files[@]}" || true
+            exit 1
+          fi
+        done

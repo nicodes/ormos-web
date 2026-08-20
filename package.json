@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@primer/octicons": "^19.33.0",
-    "astro": "^5.18.1"
+    "astro": "^7.2.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
