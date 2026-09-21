@@ -1,10 +1,12 @@
 ---
-import Full from '../layouts/Full.astro';
 import octicons from '@primer/octicons';
+// biome-ignore lint/correctness/noUnusedImports: Full is the page layout,
+// used as the <Full> element in the template below; biome does not track
+// .astro template component usage.
+import Full from '../layouts/Full.astro';
 
 const appUrl = 'https://app.ormos.dev';
-const icon = (name: keyof typeof octicons, size = 16) =>
-	octicons[name].toSVG({ width: size, height: size });
+const icon = (name: keyof typeof octicons, size = 16) => octicons[name].toSVG({ width: size, height: size });
 ---
 
 <Full
