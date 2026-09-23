@@ -5,7 +5,7 @@
     "": {
       "name": "web",
       "dependencies": {
-        "@primer/octicons": "^19.36.0",
+        "@primer/octicons": "^19.38.0",
         "astro": "^7.3.3",
       },
       "devDependencies": {
@@ -239,7 +239,7 @@
 
     "@oxc-project/types": ["@oxc-project/types@0.146.0", "", {}, "sha512-XC0QsnnhVe7sLIWmYmdPw7x5P0h4W8vUU3Nv1ySgWXtvCz8NizoAEpGXA0sOYoJQV2Rl13LgURAHQ5cI5ILCSA=="],
 
-    "@primer/octicons": ["@primer/octicons@19.36.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-oC+RG3N9i8kesxb1WWQE8eE/DgBMJ3hNHhMSvzMdAuDD0EavdYCbt6JFgSO3fhcH3rQxY2iDx23tH6A31AKWJA=="],
+    "@primer/octicons": ["@primer/octicons@19.38.0", "", { "dependencies": { "object-assign": "^4.1.1" } }, "sha512-YUU2R66aDm72CdjlTyD663sCAjILrHWK2czw+BdTUkzZfcB7bXfO6GNXm22sepLOWKPkLHezVjIHch/KNd8rMg=="],
 
     "@rolldown/binding-android-arm-eabi": ["@rolldown/binding-android-arm-eabi@1.2.5", "", { "os": "android", "cpu": "arm" }, "sha512-DLe/i+l8ynIBY7XEQ191TeZvCoowIGa18R+dIV30GW7DiOtp74i/xX8hs8GUjW5ARV7VZuie3d6AumSmCwbeRA=="],
 
