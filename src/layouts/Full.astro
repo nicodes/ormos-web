@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-	title = 'ormos — Private remote development',
-	description = 'Securely reach your development machine from any device.',
+	title = 'ormos — Your terminal and local apps, in your browser',
+	description = 'A local executable for browser terminals and localhost app previews. No hosted account; use Tailscale for private access.',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, 'https://ormos.dev');
 const structuredData = {
@@ -17,7 +17,7 @@ const structuredData = {
 	name: 'ormos',
 	url: 'https://ormos.dev',
 	applicationCategory: 'DeveloperApplication',
-	operatingSystem: 'Web, iOS, Android, Linux, macOS',
+	operatingSystem: 'Linux, macOS',
 	description,
 };
 ---
@@ -28,7 +28,7 @@ const structuredData = {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
-		<meta name="theme-color" content="#f3f4ef" />
+		<meta name="theme-color" content="#eef2e9" />
 		<meta name="robots" content="index, follow" />
 		<link rel="canonical" href={canonical} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -44,5 +44,5 @@ const structuredData = {
 		<title>{title}</title>
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
-	<body><slot /></body>
+	<body><a class="skip-link" href="#main-content">Skip to content</a><slot /></body>
 </html>
