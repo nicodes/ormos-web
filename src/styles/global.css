@@ -1,78 +1,48 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap");
-
 :root {
-	--ink: #171a16;
-	--quiet: #62675f;
-	--lime: #b9e782;
-	--lime-dark: #50772f;
-	--paper: #f3f4ef;
-	--sans: "Manrope", system-ui, sans-serif;
-	--mono: "DM Mono", ui-monospace, monospace;
+	--paper: #f1eee8;
+	--ink: #33313d;
+	--line: #d6cfdf;
+	--mono: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+	--sans: system-ui, -apple-system, "Segoe UI", sans-serif;
 	font-family: var(--sans);
-	background: var(--paper);
-	color: var(--ink);
+	background: #f1eee8;
+	color: #33313d;
 	font-synthesis: none;
+	color-scheme: light;
 }
-
 * {
 	box-sizing: border-box;
 }
 html {
 	scroll-behavior: smooth;
-	background: var(--paper);
 }
 body {
-	min-width: 320px;
-	min-height: 100svh;
 	margin: 0;
-	background: var(--paper);
-	text-rendering: optimizeLegibility;
+	min-width: 320px;
 	-webkit-font-smoothing: antialiased;
 }
-button,
-input,
-textarea,
-select {
-	font: inherit;
-}
 ::selection {
-	background: var(--lime);
-	color: var(--ink);
+	background: #33313d;
+	color: #f1eee8;
 }
-/* biome-ignore lint/complexity/noImportantStyles: reduced-motion reset must win
-   against every other rule, which is what !important is for here */
+.skip-link {
+	position: absolute;
+	left: 16px;
+	top: -80px;
+	z-index: 100;
+	padding: 12px 18px;
+	background: #33313d;
+	color: #f1eee8;
+}
+.skip-link:focus {
+	top: 12px;
+}
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
 	*::after {
 		scroll-behavior: auto !important;
-		animation-duration: 0.01ms !important;
-		transition-duration: 0.01ms !important;
+		animation: none !important;
+		transition: none !important;
 	}
-}
-
-a:focus-visible,
-summary:focus-visible {
-	outline: 3px solid currentColor;
-	outline-offset: 5px;
-}
-
-.skip-link {
-	position: fixed;
-	top: 12px;
-	left: 12px;
-	z-index: 100;
-	padding: 12px 18px;
-	background: #fff;
-	color: #111;
-	transform: translateY(-160%);
-}
-.skip-link:focus {
-	transform: translateY(0);
-}
-
-:root {
-	--paper: #eef2e9;
-	--ink: #183c30;
-	--quiet: #465f57;
 }
