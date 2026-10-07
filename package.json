@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "@primer/octicons": "^19.38.0",
-    "astro": "^7.3.3"
+    "astro": "^7.3.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@types/primer__octicons": "^19.21.0",
     "typescript": "6",
-    "@biomejs/biome": "2.5.14"
+    "@biomejs/biome": "2.5.15"
   }
 }
