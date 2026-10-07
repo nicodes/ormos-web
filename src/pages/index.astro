@@ -1,171 +1,27 @@
 ---
-import octicons from '@primer/octicons';
-// biome-ignore lint/correctness/noUnusedImports: Full is the page layout,
-// used as the <Full> element in the template below; biome does not track
-// .astro template component usage.
 import Full from '../layouts/Full.astro';
-
-const appUrl = 'https://app.ormos.dev';
-const icon = (name: keyof typeof octicons, size = 16) => octicons[name].toSVG({ width: size, height: size });
 ---
-
-<Full
-	title="ormos — Your development machine, anywhere"
-	description="Securely reach your development machine from any device. Open a live terminal and preview local apps through one private outbound connection."
->
-	<div class="page-shell">
-		<header class="site-header">
-			<a class="brand" href="/" aria-label="ormos home">
-				<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-					<path d="M16 3 28 10v12L16 29 4 22V10L16 3Z"></path>
-					<path d="m11 13 4 3-4 3M17 20h5"></path>
-				</svg>
-				<span>ormos</span>
-			</a>
-			<a class="header-cta" href={appUrl}>Open app <span class="icon" set:html={icon('arrow-up-right', 14)} /></a>
-		</header>
-
-		<main>
-			<section class="hero">
-				<div class="hero-copy">
-					<p class="eyebrow"><span></span> Your machine stays yours</p>
-					<h1>Your development machine, <em>within reach.</em></h1>
-					<p class="lede">
-						Open a real terminal and preview anything running on localhost, from the device already
-						in your hand. No inbound ports. No public development servers.
-					</p>
-					<div class="hero-actions">
-						<a class="primary-cta" href={appUrl}>Launch ormos <span class="icon" set:html={icon('arrow-right', 16)} /></a>
-						<p>Web, iOS, and Android</p>
-					</div>
-				</div>
-
-				<div class="product-frame" aria-label="ormos workspace preview">
-					<div class="frame-bar">
-						<div class="frame-brand"><span class="menu-lines"></span> studio / storefront</div>
-						<div class="frame-actions"><span class="icon" set:html={icon('device-mobile', 13)} /><span class="icon" set:html={icon('terminal', 13)} /></div>
-					</div>
-					<div class="preview-pane">
-						<div class="browser-bar">
-							<span class="icon" set:html={icon('chevron-left', 14)} /><span class="icon" set:html={icon('chevron-right', 14)} /><span class="icon" set:html={icon('sync', 12)} />
-							<div><b>:3000</b><span>/products/new</span></div>
-						</div>
-						<div class="preview-content">
-							<div class="preview-card"><small>LOCAL PREVIEW</small><strong>Build here.<br />See it there.</strong><i class="icon" set:html={icon('arrow-up-right', 16)} /></div>
-						</div>
-					</div>
-					<div class="terminal-pane">
-						<div class="terminal-tabs"><span>Terminal 1</span><span class="icon" set:html={icon('plus', 12)} /><i>connected</i></div>
-						<pre><span class="prompt">~/code/storefront</span> <span class="branch">main</span>
+<Full title="Ormos — Your terminal. Your apps. One local workspace." description="Run Ormos on your machine for browser terminals and localhost app previews. One executable, no hosted account. Use Tailscale for private access from another device.">
+<div class="shell"><header><a class="wordmark" href="/">ormos<span> / local workspace</span></a><nav aria-label="Main"><a href="#start">Install</a><a href="https://github.com/nicodes/ormos">GitHub ↗</a></nav></header>
+<main id="main-content"><section class="intro"><p class="eyebrow">HOME IS WHERE YOUR SHELL IS</p><h1>Your terminal.<br>Your apps.<br><span>One open window.</span></h1><div class="intro-bottom"><p>Real shells and localhost previews, together in your browser. Ormos runs on your machine as one executable. Your tools and files are already there.</p><a class="button" href="#start">Make yourself at home <span>↘</span></a></div></section>
+<section class="workspace" aria-label="Illustrative Ormos workspace"><div class="workspace-label"><span>WORKSPACE / EXAMPLE</span><span>LOCAL → BROWSER</span></div><div class="workspace-grid"><div class="terminal"><div class="pane-title">Terminal 1 <span>+</span></div><pre><span>~/code/studio</span>
 $ bun dev
-<span class="muted">ready in 312ms</span>
-<span class="success">➜ Local: http://localhost:3000/</span>
-<span class="cursor"></span></pre>
-						<div class="terminal-tools"><span class="icon stop" set:html={icon('stop', 11)} /><span class="icon" set:html={icon('unmute', 11)} /><span class="icon" set:html={icon('sign-in', 11)} /><span>dev</span><span>test</span></div>
-					</div>
-				</div>
-			</section>
 
-			<section class="principles" aria-label="How ormos works">
-				<article>
-					<span class="number">01</span>
-					<div><h2>Outbound by design</h2><p>Your machine initiates one encrypted connection. There is nothing to open on your home network.</p></div>
-				</article>
-				<article>
-					<span class="number">02</span>
-					<div><h2>A terminal that is actually yours</h2><p>Work in the real project directory, with your shell, tools, files, and running processes intact.</p></div>
-				</article>
-				<article>
-					<span class="number">03</span>
-					<div><h2>Localhost travels with you</h2><p>Expose only the ports you choose and navigate multi-page apps through a private live preview.</p></div>
-				</article>
-			</section>
+<span>Local: http://localhost:3000/</span>
 
-			<section class="closing">
-				<p>Leave the screen.<br />Keep the workspace.</p>
-				<div><span>YOUR MACHINE</span><i></i><span>ORMOS RELAY</span><i></i><span>ANY DEVICE</span></div>
-				<a class="primary-cta light" href={appUrl}>Open your workspace <span class="icon" set:html={icon('arrow-right', 16)} /></a>
-			</section>
-		</main>
-
-		<footer><a class="brand footer-brand" href="/"><span>ormos</span></a><p>Private remote development.</p><p>© {new Date().getFullYear()} ormos</p></footer>
-	</div>
-</Full>
-
+$ <span class="cursor">▏</span></pre><div class="keys">Keyboard &nbsp; Esc &nbsp; Tab &nbsp; ↑ &nbsp; ↓ &nbsp; Enter <span>Ctrl+C</span></div></div><div class="preview"><div class="pane-title">3000 / <span>↗</span></div><div class="preview-art"><small>YOUR LOCAL APP</small><b>Build it here.<br>Open it there.</b><span class="preview-circle">↗</span></div></div></div><p class="caption">Terminal and preview are separate views in Ormos. This illustration shows both side by side.</p></section>
+<section class="features"><article><span>01 / TERMINAL</span><h2>A tab for each thread.</h2><p>Independent shells keep running as you switch views. Rename tabs, save commands, and paste saved prompts into the active terminal.</p></article><article><span>02 / PREVIEW</span><h2>Just enter the port.</h2><p>Try <code>3000</code>, <code>3000/about</code>, or a localhost URL. Ormos forwards the app, including WebSockets and live reload, through a separate preview origin.</p></article><article><span>03 / ANYWHERE</span><h2>A private way back.</h2><p>Local use needs no account or network setup. For another device, keep Ormos on loopback and use Tailscale Serve for private workspace and app access.</p><a href="https://github.com/nicodes/ormos#private-access-through-tailscale">Set up private access ↗</a></article></section>
+<section class="start" id="start"><div><p class="eyebrow">LESS SETUP. MORE WORKSPACE.</p><h2>Install.<br>Open.<br>Carry on.</h2><p>Prebuilt releases for Linux and macOS, on x86_64 and arm64. The installer verifies the download and installs to your user bin directory without sudo.</p><a href="https://github.com/nicodes/ormos/releases">Browse releases ↗</a></div><div class="steps"><article><span>01 — INSTALL</span><pre>curl -fsSL https://github.com/nicodes/ormos/raw/main/install.sh | sh</pre></article><article><span>02 — START</span><pre>ormos ui</pre></article><article><span>03 — OPEN THE PRINTED ADDRESS</span><p>Defaults to <code>http://127.0.0.1:4242</code>. Open a terminal tab, run your app, and enter its port in Preview.</p></article><p class="access-note">Ormos has no application login. Keep remote access private: anyone allowed to reach the UI can control its terminals.</p></div></section></main><footer><a class="wordmark" href="/">ormos</a><p>A workspace on your machine.</p><a href="https://github.com/nicodes/ormos#readme">Documentation ↗</a></footer></div></Full>
 <style>
-	.page-shell { min-height: 100svh; overflow: hidden; }
-	.site-header { width: min(1180px, calc(100% - 40px)); height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
-	.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-size: 19px; font-weight: 760; letter-spacing: -.03em; text-decoration: none; }
-	.brand-mark { width: 27px; height: 27px; }
-	.brand-mark path:first-child { fill: var(--ink); stroke: none; }
-	.brand-mark path:last-child { fill: none; stroke: white; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-	.header-cta { color: var(--ink); border-bottom: 1px solid #c5c7c2; padding: 6px 0; font-size: 13px; font-weight: 650; text-decoration: none; }
-	.header-cta span { margin-left: 5px; color: var(--lime-dark); }
-	:global(.icon svg) { display: block; fill: currentColor; }
-	.hero { width: min(1180px, calc(100% - 40px)); margin: 70px auto 110px; display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 70px; }
-	.hero-copy { position: relative; z-index: 2; }
-	.eyebrow { display: flex; align-items: center; gap: 9px; margin: 0 0 22px; color: var(--quiet); font: 620 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-	.eyebrow span { width: 7px; height: 7px; border-radius: 50%; background: var(--lime-dark); box-shadow: 0 0 0 4px rgba(80, 119, 47, .12); }
-	h1 { max-width: 600px; margin: 0; color: var(--ink); font-size: clamp(48px, 6.2vw, 82px); font-weight: 590; line-height: .98; letter-spacing: -.062em; }
-	h1 em { color: var(--lime-dark); font-family: Georgia, serif; font-weight: 400; }
-	.lede { max-width: 520px; margin: 30px 0 32px; color: var(--quiet); font-size: 16px; line-height: 1.7; }
-	.hero-actions { display: flex; align-items: center; gap: 20px; }
-	.hero-actions p { color: #8a8e86; font: 500 10px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .05em; }
-	.primary-cta { display: inline-flex; align-items: center; gap: 30px; border-radius: 4px; background: var(--ink); color: white; padding: 14px 18px; font-size: 13px; font-weight: 680; text-decoration: none; transition: transform .18s ease, background .18s ease; }
-	.primary-cta:hover { transform: translateY(-2px); background: #2b2d29; }
-	.primary-cta span { color: var(--lime); font-size: 17px; }
-	.product-frame { position: relative; min-width: 680px; border: 1px solid #d7dad3; border-radius: 9px; background: white; box-shadow: 0 35px 80px rgba(42, 48, 35, .14), 0 3px 10px rgba(42, 48, 35, .07); overflow: hidden; transform: perspective(1400px) rotateY(-3deg) rotateX(1deg); }
-	.product-frame::before { content: ''; position: absolute; z-index: -1; width: 340px; height: 340px; right: -70px; top: -90px; border-radius: 50%; background: var(--lime); filter: blur(80px); opacity: .28; }
-	.frame-bar { height: 42px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #e8eae6; padding: 0 13px; color: #555a51; font: 600 10px var(--mono); }
-	.frame-brand, .frame-actions { display: flex; align-items: center; gap: 11px; }
-	.menu-lines { width: 13px; height: 8px; border-block: 1px solid #777b73; position: relative; }
-	.menu-lines::after { content: ''; position: absolute; left: 0; right: 0; top: 3px; border-top: 1px solid #777b73; }
-	.frame-actions span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 4px; background: #f2f3f0; color: #444840; }
-	.preview-pane { height: 290px; background: #f5f6f2; }
-	.browser-bar { height: 36px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #dddeda; padding: 0 11px; color: #7b7f77; font: 500 11px var(--mono); }
-	.browser-bar > div { display: flex; flex: 1; gap: 3px; border: 1px solid #dedfdb; border-radius: 5px; background: white; padding: 5px 9px; }
-	.browser-bar b { color: #60655d; }
-	.preview-content { height: calc(100% - 36px); display: grid; place-items: center; background: radial-gradient(circle at 64% 20%, #e1efc8, transparent 36%), #f7f7f3; }
-	.preview-card { width: 70%; position: relative; padding: 34px; border: 1px solid #d8dad3; background: rgba(255,255,255,.86); box-shadow: 0 15px 45px rgba(38, 45, 30, .08); }
-	.preview-card small { color: var(--lime-dark); font: 650 8px var(--mono); letter-spacing: .12em; }
-	.preview-card strong { display: block; margin-top: 12px; color: #20231e; font: 520 28px/1.04 var(--sans); letter-spacing: -.04em; }
-	.preview-card i { position: absolute; right: 28px; top: 32px; width: 45px; height: 45px; display: grid; place-items: center; border: 1px solid #a8c77d; border-radius: 50%; color: var(--lime-dark); font-style: normal; }
-	.terminal-pane { height: 245px; display: flex; flex-direction: column; background: #0c110d; color: #d9dfd8; }
-	.terminal-tabs { height: 32px; display: flex; align-items: center; gap: 13px; border-bottom: 1px solid #202620; padding: 0 12px; color: #9da69d; font: 500 9px var(--mono); }
-	.terminal-tabs span:first-child { border-radius: 3px; background: #1c231d; color: #eef2ed; padding: 4px 7px; }
-	.terminal-tabs i { margin-left: auto; color: #576157; font-style: normal; }
-	.terminal-pane pre { flex: 1; margin: 0; padding: 16px 18px; font: 11px/1.8 var(--mono); }
-	.prompt { color: #d9dfd8; }.branch, .success { color: #9fcf69; }.muted { color: #697269; }
-	.cursor { display: inline-block; width: 6px; height: 12px; margin-top: 5px; background: #b4df83; vertical-align: middle; animation: blink 1.2s step-end infinite; }
-	.terminal-tools { height: 32px; display: flex; align-items: center; gap: 7px; border-top: 1px solid #202620; padding: 0 10px; }
-	.terminal-tools span { border-radius: 3px; background: #1a211b; color: #9ca59c; padding: 4px 7px; font: 9px var(--mono); }.terminal-tools .stop { color: #dd7d78; }
-	.principles { width: min(1180px, calc(100% - 40px)); margin: 0 auto 120px; border-top: 1px solid #d9dcd5; }
-	.principles article { display: grid; grid-template-columns: 90px 1fr; border-bottom: 1px solid #d9dcd5; padding: 32px 0; }
-	.principles article div { display: grid; grid-template-columns: .75fr 1fr; align-items: baseline; gap: 40px; }
-	.number { color: var(--lime-dark); font: 650 10px var(--mono); }
-	.principles h2 { margin: 0; color: var(--ink); font-size: 22px; font-weight: 580; letter-spacing: -.035em; }
-	.principles p { max-width: 550px; margin: 0; color: var(--quiet); font-size: 14px; line-height: 1.65; }
-	.closing { width: min(1180px, calc(100% - 40px)); margin: 0 auto; border-radius: 8px; background: var(--ink); color: white; padding: 65px; }
-	.closing > p { max-width: 680px; margin: 0 0 50px; font-size: clamp(42px, 6vw, 72px); font-weight: 530; line-height: .98; letter-spacing: -.055em; }
-	.closing > div { display: flex; align-items: center; gap: 13px; margin-bottom: 35px; color: #9da39b; font: 560 9px var(--mono); letter-spacing: .09em; }
-	.closing > div i { width: 50px; border-top: 1px dashed #596057; }
-	.primary-cta.light { background: var(--lime); color: #1c2418; }.primary-cta.light span { color: #1c2418; }
-	footer { width: min(1180px, calc(100% - 40px)); min-height: 120px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; align-items: center; color: #8a8e86; font: 500 10px var(--mono); }
-	footer p:nth-child(2) { text-align: center; } footer p:last-child { text-align: right; }.footer-brand { font-family: var(--sans); font-size: 16px; }
-	@keyframes blink { 50% { opacity: 0; } }
-	@media (max-width: 900px) {
-		.hero { grid-template-columns: 1fr; margin-top: 45px; gap: 60px; }
-		.hero-copy { max-width: 680px; }
-		.product-frame { min-width: 0; width: 100%; transform: none; }
-		.principles article div { grid-template-columns: 1fr; gap: 9px; }
-	}
-	@media (max-width: 600px) {
-		.site-header, .hero, .principles, .closing, footer { width: min(100% - 28px, 1180px); }
-		.site-header { height: 64px; }.hero { margin: 48px auto 80px; }.eyebrow { margin-bottom: 18px; }
-		h1 { font-size: clamp(44px, 14vw, 62px); }.lede { margin-top: 24px; font-size: 15px; }.hero-actions { align-items: flex-start; flex-direction: column; gap: 12px; }
-		.product-frame { border-radius: 6px; }.preview-pane { height: 230px; }.terminal-pane { height: 220px; }.preview-card { width: 82%; padding: 24px; }.preview-card strong { font-size: 23px; }.preview-card i { display: none; }
-		.principles article { grid-template-columns: 42px 1fr; padding: 26px 0; }.principles h2 { font-size: 19px; }.principles p { font-size: 13px; }
-		.closing { padding: 40px 25px; }.closing > div { flex-wrap: wrap; }.closing > div i { width: 20px; }
-		footer { grid-template-columns: 1fr auto; padding: 30px 0; }.footer-brand { display: none; }footer p:nth-child(2) { text-align: left; } footer p:last-child { text-align: right; }
-	}
+
+.shell { width: min(1200px,calc(100% - 64px)); margin: auto; }
+header { min-height: 92px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-bottom: 1px solid #b8c3bf; }
+a { color: inherit; text-underline-offset: 5px; } .wordmark { font-weight: 800; font-size: 26px; letter-spacing: -.06em; text-decoration: none; } .wordmark span { font: 11px var(--mono); letter-spacing: 0; margin-left: 12px; color: #465f57; } nav { display: flex; gap: 25px; font-size: 13px; } nav a { text-decoration: none; }
+.intro { padding: 72px 0 48px; } .eyebrow { font: 11px var(--mono); letter-spacing: .12em; color: #315b4d; } h1 { font-size: clamp(56px,7.5vw,104px); line-height: 1.01; letter-spacing: -.045em; font-weight: 650; margin: 30px 0; } h1 span { color: #387c65; } .intro-bottom { display: flex; justify-content: space-between; align-items: end; gap: 36px; } .intro-bottom p { max-width: 590px; font-size: 18px; line-height: 1.7; color: #465f57; } .button { padding: 18px 25px; background: #183c30; color: #fff; border-radius: 100px; display: inline-flex; gap: 30px; text-decoration: none; white-space: nowrap; font-size: 14px; }
+.workspace { border: 1px solid #b8c3bf; padding: 18px; background: #fff; border-radius: 18px; } .workspace-label { display: flex; justify-content: space-between; font: 10px var(--mono); color: #465f57; padding: 4px 4px 18px; } .workspace-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; } .terminal { background: #152b23; color: #edf1e9; border-radius: 8px; min-width: 0; } .pane-title { font: 12px var(--mono); border-bottom: 1px solid #ffffff25; padding: 16px; display: flex; justify-content: space-between; } .terminal pre { margin: 0; padding: 30px; font: 13px/1.7 var(--mono); overflow-x: auto; } .terminal pre span { color: #b8dba3; } .keys { border-top: 1px solid #ffffff25; padding: 16px; font: 10px var(--mono); display: flex; justify-content: space-between; } .preview { border-radius: 8px; background: #e4edda; } .preview .pane-title { border-color: #b7c6ab; } .preview-art { padding: 36px; } .preview-art small { font: 10px var(--mono); color: #465f57; } .preview-art b { display: block; font: 44px/1.04 Georgia,serif; margin: 20px 0; } .preview-circle { display: block; width: 40px; height: 40px; text-align: center; line-height: 40px; border: 1px solid #79947f; border-radius: 50%; } .caption { font: 11px/1.6 var(--mono); color: #465f57; padding: 0 4px; }
+.features { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 40px; padding: 88px 0; } .features article > span,.steps article > span { font: 11px var(--mono); color: #387c65; } h2 { font-size: 32px; font-weight: 600; line-height: 1.1; letter-spacing: -.04em; } .features p,.start p { color: #465f57; font-size: 15px; line-height: 1.7; } .features a,.start a { font-size: 13px; } code { font-family: var(--mono); }
+.start { display: grid; grid-template-columns: .8fr 1.2fr; gap: 80px; padding: 60px 0 85px; border-top: 1px solid #b8c3bf; } .start h2 { font: 64px/1.02 Georgia,serif; margin: 20px 0; } .steps { min-width: 0; } .steps article { border-bottom: 1px solid #b8c3bf; padding: 24px 0; } .steps pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 12px/1.7 var(--mono); background: #fff; padding: 20px; border-radius: 8px; } .access-note { border-left: 3px solid #387c65; padding-left: 16px; } footer { min-height: 100px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #b8c3bf; gap: 24px; font-size: 12px; color: #465f57; }
+@media (max-width: 900px) { .features { grid-template-columns: 1fr; gap: 24px; padding: 55px 0; } .start { grid-template-columns: 1fr; gap: 25px; } .intro-bottom { align-items: start; flex-direction: column; gap: 12px; } }
+@media (max-width: 600px) { .shell { width: calc(100% - 32px); } header { min-height: 76px; } .wordmark span { display: none; } nav { gap: 16px; } .intro { padding-top: 42px; } h1 { font-size: 53px; } .intro-bottom p { font-size: 16px; } .workspace-grid { grid-template-columns: 1fr; } .workspace { padding: 10px; } .preview-art b { font-size: 37px; } .workspace-label { font-size: 9px; gap: 12px; } footer { flex-wrap: wrap; padding: 28px 0; } }
+
 </style>
