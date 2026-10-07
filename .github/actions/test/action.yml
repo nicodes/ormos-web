@@ -1,72 +1,8 @@
 name: Test
-description: >
-  Is this commit good. Nothing is published here; a failure means the site is
-  wrong, not that the pipeline is.
-
-  Runs AFTER ../build, because everything it asserts is a property of ./dist. A
-  static site has two ways to be broken that matter -- it did not build, and it
-  built the wrong thing -- and only the second one needs a test.
-
-  Vercel runs none of this. Vercel runs `bun run build` and ships whatever comes
-  out, so a page that started loading a client runtime would deploy green. This
-  action is the only thing that would say otherwise.
-
+description: Canonical static-site test gate
 runs:
   using: composite
   steps:
-    # Lint and format, against the biome.json copied verbatim from the cicd
-    # static-web archetype: one canonical configuration for every web
-    # repository, so style is a fleet property rather than a per-repo debate.
-    # The engine is @biomejs/biome, pinned as an exact devDependency in
-    # package.json and installed by ../build's frozen install, which runs
-    # before this action in the Test job -- `bun x` resolves that local
-    # binary, so the gate always runs the pinned version, never a resolved
-    # latest. A source assertion, so it goes first: it needs nothing from
-    # ./dist and is cheaper than the assertions that do.
-    - name: Lint and format are canonical
+    - name: Test
       shell: bash
-      run: bun x biome check
-
-    # A build that emits nothing still "succeeds", so the artefact is checked
-    # rather than the exit code.
-    - name: The page was actually written
-      shell: bash
-      run: test -s dist/index.html
-
-    # The point of this site is that it ships no JavaScript. Nothing else would
-    # notice an integration being added back, and by then the page has a runtime
-    # it did not need.
-    #
-    # This looks at the tree rather than grepping index.html for a <script src>.
-    # A bundle that is emitted but not yet referenced is still a runtime that
-    # arrived -- the emitting is the change worth catching, and the reference
-    # usually follows in the same commit.
-    - name: No JavaScript was shipped
-      shell: bash
-      run: |
-        if find dist -name '*.js' | grep -q .; then
-          echo "::error::dist contains JavaScript -- this site is meant to ship none"
-          find dist -name '*.js'
-          exit 1
-        fi
-
-    # Vite 8 targets Safari 16.4 by default and can therefore serialize these
-    # as Media Queries Level 4 ranges. Safari/iOS 16.0-16.3 drops those query
-    # blocks entirely, breaking both responsive layouts. Require the legacy
-    # syntax that our explicit CSS target is intended to preserve.
-    - name: Responsive breakpoints support the browser floor
-      shell: bash
-      run: |
-        mapfile -d '' css_files < <(find dist -type f -name '*.css' -print0)
-        if (( ${#css_files[@]} == 0 )); then
-          echo "::error::dist contains no CSS to inspect"
-          exit 1
-        fi
-
-        for breakpoint in 900 600; do
-          if ! grep -Eq "@media[[:space:]]*\\([[:space:]]*max-width:[[:space:]]*${breakpoint}px[[:space:]]*\\)" "${css_files[@]}"; then
-            echo "::error::the ${breakpoint}px responsive breakpoint lacks legacy max-width syntax; Level 4-only ranges break Safari/iOS 16.0-16.3"
-            grep -hEo '@media[^{}]*' "${css_files[@]}" || true
-            exit 1
-          fi
-        done
+      run: make test
