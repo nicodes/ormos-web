@@ -1,17 +1,22 @@
-# ormos web
+# Ormos website
 
-The public [ormos.dev](https://ormos.dev) site. It is a static Astro landing page
-with product information and a call to action linking to the application at
-[app.ormos.dev](https://app.ormos.dev).
+Static Astro landing page for [Ormos](https://ormos.dev).
 
-The site has no authentication, application state, backend access, or runtime
-environment configuration.
+Primary destination: [Ormos](https://github.com/nicodes/ormos#readme).
 
-## Commands
+Ormos is a local executable for browser terminals and app previews. The landing page links to installation and private Tailscale access rather than a retired hosted application.
 
-| Command | Action |
-| --- | --- |
-| `bun install` | Install dependencies |
-| `bun dev` | Start the Astro development server |
-| `bun run build` | Generate the static site in `dist/` |
-| `bun preview` | Preview the static build |
+## Development
+
+Use the Bun version in `.mise.toml`.
+
+```sh
+bun install --frozen-lockfile
+bun run dev
+bun run build
+bun run preview
+```
+
+Run `bun run typecheck` before building.
+
+The site is static and ships no client-side JavaScript. Existing CI validates the build and product-specific output contract.
