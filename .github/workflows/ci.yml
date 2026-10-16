@@ -50,7 +50,7 @@ jobs:
       # `bun-version: "1.3"` written out here -- a second place to change one
       # version, and two places drift.
       - name: "Set up tools"
-        uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        uses: jdx/mise-action@08ae2a091c038e1e05ec6f5115dc5c69d5a2a6b8 # v5.1.2
 
       - name: "Validate workflow standards"
         uses: nicodes/tools/workflow-standards@cf00f693441a6b1917fb459c66a2004efeff93b6 # v0.25.0
