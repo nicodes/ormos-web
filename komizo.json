@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "recipe": "static-site",
+  "repository": "nicodes/ormos-web",
+  "tools": {
+    "actionlint": "1.7.12",
+    "shellcheck": "0.11.0"
+  },
+  "stages": {
+    "lint": [
+      [
+        "bun",
+        "x",
+        "--no-install",
+        "biome",
+        "check"
+      ],
+      [
+        "bun",
+        "run",
+        "typecheck"
+      ],
+      [
+        "actionlint"
+      ]
+    ]
+  },
+  "validation": {
+    "workflow": {
+      "required": [
+        "ci.yml",
+        "dependency-policy.yml"
+      ],
+      "ci_gates": [
+        "Test"
+      ]
+    }
+  }
+}
