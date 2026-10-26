@@ -1,4 +1,4 @@
-<!-- Generated from private documentation source. Do not edit directly. Source SHA256: b4fd504a660afc50823d08a6ca26bb4d50a8d55c834a969271a095eb66437f79 -->
+<!-- Generated from private documentation source. Do not edit directly. Source SHA256: 69eff431f02dec42edb45366a044b98f5ec3c40ddb089dd6f5b837ba2fc17831 -->
 
 # ormos-web
 
@@ -14,3 +14,5 @@ komizo describe            # Inspect tools and available commands
 ```
 
 Ctrl-C stops development. This website needs no runtime credentials or credential `.env` file.
+
+Report security issues through this repository’s **Security → Report a vulnerability** form.
