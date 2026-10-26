@@ -1,26 +1,16 @@
-# Ormos website
+<!-- Generated from private documentation source. Do not edit directly. Source SHA256: b4fd504a660afc50823d08a6ca26bb4d50a8d55c834a969271a095eb66437f79 -->
 
-Static Astro landing page for [Ormos](https://ormos.dev).
+# ormos-web
 
-Primary destination: [Ormos](https://github.com/nicodes/ormos#readme).
+Static website built with Astro.
 
-Ormos is a local executable for browser terminals and app previews. The landing page links to installation and private Tailscale access rather than a retired hosted application.
-
-## Development
-
-Use the Bun version in `.mise.toml`.
+Install the [Komizo release](https://github.com/nicodes/komizo#install) matching `komizo.lock`, then run:
 
 ```sh
-bun install --frozen-lockfile
-bun run dev
-bun run build
-bun run preview
+komizo dev                 # Foreground development server
+komizo check               # Complete applicable source, build and output checks
+komizo run build           # Generate dist/
+komizo describe            # Inspect tools and available commands
 ```
 
-Run `bun run typecheck` before building.
-
-The site is static and ships no client-side JavaScript. Existing CI validates the build and product-specific output contract.
-
-## Standard developer commands
-
-Use `mise install` to install the pinned Bun toolchain. Run `mise exec -- make check` for frozen dependency installation, source lint, type checking, the static build and all output assertions. `make test` verifies an existing build. `make dev` runs the development server in the foreground; stop it with Ctrl-C. `make clean` removes generated output.
+Ctrl-C stops development. This website needs no runtime credentials or credential `.env` file.
