@@ -7,33 +7,12 @@
     "shellcheck": "0.11.0"
   },
   "stages": {
-    "lint": [
-      [
-        "bun",
-        "x",
-        "--no-install",
-        "biome",
-        "check"
-      ],
-      [
-        "bun",
-        "run",
-        "typecheck"
-      ],
-      [
-        "actionlint"
-      ]
-    ]
+    "lint": [["bun", "x", "--no-install", "biome", "check"], ["bun", "run", "typecheck"], ["actionlint"]]
   },
   "validation": {
     "workflow": {
-      "required": [
-        "ci.yml",
-        "dependency-policy.yml"
-      ],
-      "ci_gates": [
-        "Test"
-      ]
+      "required": ["ci.yml", "dependency-policy.yml"],
+      "ci_gates": ["Test"]
     }
   }
 }
