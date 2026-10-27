@@ -1,5 +1,6 @@
 ---
 import Full from '../layouts/Full.astro';
+const installCommand = "curl -fsSL https://ormos.dev/install | sh";
 ---
 
 <Full>
@@ -149,7 +150,7 @@ $ ▏</pre>
 				<div class="steps">
 					<article>
 						<span>01 / INSTALL</span>
-						<pre>curl -fsSL https://github.com/nicodes/ormos/raw/main/install.sh | sh</pre>
+						<pre>{installCommand}</pre>
 					</article>
 					<article>
 						<span>02 / START</span>
