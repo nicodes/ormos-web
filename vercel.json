@@ -34,5 +34,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/install",
+      "destination": "https://raw.githubusercontent.com/nicodes/ormos/main/install.sh",
+      "permanent": false
+    }
   ]
 }
