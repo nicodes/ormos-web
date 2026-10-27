@@ -1,4 +1,4 @@
-<!-- Generated from private documentation source. Do not edit directly. Source SHA256: c9a5ab45137a4d437385ad67cd1d3e63b8acfae91df38bf3682e9e2d6574aec5 -->
+<!-- Generated from private documentation source. Do not edit directly. Source SHA256: 1706ee64bc897b2b89679e20f093cfa0eb0c80dd03969f2ab6ffd7df9e22356a -->
 
 # ormos-web
 
@@ -16,3 +16,11 @@ komizo describe            # Inspect tools and available commands
 Ctrl-C stops development. This website needs no runtime credentials or credential `.env` file.
 
 Report security issues through this repository’s **Security → Report a vulnerability** form.
+
+## Install the CLI
+
+```sh
+curl -fsSL https://ormos.dev/install | sh
+```
+
+See [ormos](https://github.com/nicodes/ormos#readme) for setup and installation options.
