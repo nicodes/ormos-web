@@ -1,7 +1,9 @@
 ---
+import InstallCommand from '../components/InstallCommand.astro';
 import Full from '../layouts/Full.astro';
 
 const installCommand = 'curl -fsSL https://ormos.dev/install | sh';
+const miseCommand = 'mise use --global github:nicodes/ormos@latest';
 ---
 
 <Full>
@@ -151,7 +153,10 @@ $ ▏</pre>
 				<div class="steps">
 					<article>
 						<span>01 / INSTALL</span>
-						<pre>{installCommand}</pre>
+						<p>curl</p>
+						<InstallCommand command={installCommand} method="curl" />
+						<p>mise</p>
+						<InstallCommand command={miseCommand} method="mise" />
 					</article>
 					<article>
 						<span>02 / START</span>
@@ -177,6 +182,7 @@ $ ▏</pre>
 			</nav>
 		</footer>
 	</div>
+	<script is:inline type="module" src="/install-copy.js"></script>
 </Full>
 <style>
 	* {
