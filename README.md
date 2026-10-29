@@ -1,4 +1,4 @@
-<!-- Generated from private documentation source. Do not edit directly. Source SHA256: 3daa96cbcca2959eed7c84279133ccfd6670622b8ce2bffbc34825050265fb59 -->
+<!-- Generated from private documentation source. Do not edit directly. Source SHA256: 69950faa923089ac1df6287b38b9a22e9525f435dcbfb5b84ec63c55051ada73 -->
 
 # ormos-web
 
@@ -31,6 +31,6 @@ Or with mise:
 mise use --global github:nicodes/ormos@latest
 ```
 
-Each install command has a Copy button with confirmation. If clipboard access is unavailable, the command remains selectable for manual copying.
+An icon-only copy control sits on the right inside each install-command outline and shows a checkmark after copying. If clipboard access is unavailable, the command remains selectable for manual copying.
 
 See [ormos](https://github.com/nicodes/ormos#readme) for setup and installation options.
