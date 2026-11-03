@@ -1,4 +1,4 @@
-<!-- Generated from private documentation source. Do not edit directly. Source SHA256: 18eda90bd870ef1146918b8ad2099e951e4a80a297db0b5e98deeb7da211d1d2 -->
+<!-- Generated from private documentation source. Do not edit directly. Source SHA256: 7606dd708f2c4c16273d38b33d07d10c998fd2fc9162786706d7b845e382a342 -->
 
 # ormos-web
 
@@ -47,3 +47,7 @@ mise run check
 Build commands record source and exact regular output hashes. Declared tests produce evidence from the current verification session in `.artifacts/verification`.
 
 `mise run dev` owns the checkout’s foreground process tree. Dependency preparation and the application use an isolated local environment through the pinned optional ghenv CLI; no account is needed. Startup refuses changes to the native task policy during preparation. `mise run stop` stops only that checkout, and `mise run clean` refuses cleanup while its session is active.
+
+## Contributor task interface
+
+Contributor tool versions and task entry points live in the native Mise configuration. Use `mise run lint` for source checks, `mise run test` for the applicable behavioral tests, and `mise run check` for the complete supported gate. `mise run clean` removes declared generated outputs while preserving source, credentials and retained data. Use `mise run dev` and `mise run stop` for this checkout's owned local session.
