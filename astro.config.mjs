@@ -7,6 +7,7 @@ export default defineConfig({
 	// HTML-aware behavior so adjacent inline content renders unchanged.
 	compressHTML: true,
 	vite: {
+		envDir: false,
 		// Vite 8 defaults to Safari 16.4, which permits Media Queries Level 4
 		// range syntax. Keep Vite 7's Safari 16.0 floor so iOS 16.0-16.3
 		// receives legacy-parsable responsive breakpoints.
