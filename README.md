@@ -1,4 +1,4 @@
-<!-- Generated from private documentation source. Do not edit directly. Source SHA256: c4f901663078c6015c058e3d51e43a0c4538d5a49881ae9c4832172a4a5bb377 -->
+<!-- Generated from private documentation source. Do not edit directly. Source SHA256: b3a833ac9381ad549aed82bc26afa6d55c0f4447394810bf8d53d02744a9b144 -->
 
 # ormos-web
 
@@ -39,7 +39,7 @@ For contributor verification, prepare the pinned helper source before running na
 
 ```sh
 git clone https://github.com/nicodes/tools.git .ci-tools
-git -C .ci-tools checkout --detach 39666e8d26d2bd0e1c7e5fee6f289fd0fd3a5202
+git -C .ci-tools checkout --detach 46bf98735de2e7fe41cca1042c20c98f5b01824a
 mise install
 mise run check
 ```
